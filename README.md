@@ -6,15 +6,15 @@
 
 ## 🗓️ Day 1: Character Setup
 
-- [ ] Create a `Character` struct with:
+- ✅ Create a `Character` struct with:
 
   - `name` (string)
   - `hp` (int)
   - `atk` (int)
   - `def` (int)
 
-- [ ] Initialize a `player` and `enemy` with values
-- [ ] Print their stats using `cout`
+- ✅  Initialize a `player` and `enemy` with values
+- ✅  Print their stats using `cout`
 
 **Learn:** Structs, variables, basic I/O
 **Resources:**
