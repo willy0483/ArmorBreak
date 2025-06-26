@@ -25,14 +25,14 @@
 
 ## 🗓️ Day 2: Damage Function
 
-- [ ] Write a function:
+- ✅ Write a function:
 
 ```cpp
 int calculateDamage(int atk, int def);
 ```
 
-- [ ] Prevent negative damage
-- [ ] Subtract damage from enemy HP
+- ✅ Prevent negative damage
+- ✅ Subtract damage from enemy HP
 
 **Learn:** Functions, conditionals
 **Resources:**
