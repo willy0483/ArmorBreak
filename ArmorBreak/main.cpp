@@ -1,6 +1,9 @@
 #include <iostream>
 
 
+
+int calculateDamage(int atk, int def);
+
 int main()
 {
 
@@ -11,6 +14,9 @@ int main()
 		int atk{}; // Attack
 		int def{}; // Defense
 
+		//
+		// Prints all character stats to console
+		//
 		void printStats()
 		{
 			std::cout << "------------------\n";
@@ -27,16 +33,13 @@ int main()
 		//
 		void takeDamage(int incomingAtk)
 		{
-			//
-			// Convert values to float before division to get proper floating-point result
-			//
-			float damageMultiplier = static_cast<float>(incomingAtk) / (incomingAtk + def);
 
 			//
-			// Round the result when converting back to int
+			// Calculates and applies damage based on incoming attack power
+			// Damage is reduced by this character's defense			
 			//
-			int totalDamage = static_cast<int>(incomingAtk * damageMultiplier + 0.5f);
-
+			int totalDamage = calculateDamage(incomingAtk, def);
+	
 			//
 			// Subtract hp from total damage
 			//
@@ -77,4 +80,29 @@ int main()
 
 
 	return 0;
+}
+
+
+//
+// Calculates damage based on attack and defense values
+// Uses a diminishing returns formula where higher defense reduces damage proportionally
+//
+int calculateDamage(int atk, int def)
+{
+	//
+	// Prevent negative or zero attack from dealing damage
+	//
+	if (atk <= 0) return 0;
+
+	//
+	// Convert values to float before division to get proper floating-point result
+	//
+	float multiplier = static_cast<float>(atk) / (atk + def);
+
+	//
+	// Round the result when converting back to int
+	//
+	int damage = static_cast<int>(atk * multiplier + 0.5f);
+
+	return damage;
 }
