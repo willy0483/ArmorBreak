@@ -67,9 +67,9 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 5: Battle Log Output
 
-- [ ] Print messages for attack/damage/HP
-- [ ] Add turn counter
-- [ ] Format for readability (lines, spacing)
+- ✅ Print messages for attack/damage/HP
+- ✅ Add turn counter
+- ✅ Format for readability (lines, spacing)
 
 **Learn:** Output formatting, string usage
 
