@@ -43,9 +43,9 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 3: Turn-Based Loop
 
-- [ ] Add a battle loop using `while (player.hp > 0 && enemy.hp > 0)`
-- [ ] Alternate turns between player and enemy
-- [ ] Print HP after each turn
+- ✅ Add a battle loop using `while (player.hp > 0 && enemy.hp > 0)`
+- ✅ Alternate turns between player and enemy
+- ✅ Print HP after each turn
 
 **Learn:** While loops, game logic
 **Resources:**
@@ -55,9 +55,9 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 4: Player Choice
 
-- [ ] Ask the player: (1) Attack (2) Defend
-- [ ] Use `cin` to read input
-- [ ] Implement defend logic (reduce damage)
+- ✅ Ask the player: (1) Attack (2) Defend
+- ✅ Use `cin` to read input
+- ✅ Implement defend logic (reduce damage)
 
 **Learn:** User input, branching
 **Resources:**
@@ -67,9 +67,9 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 5: Battle Log Output
 
-- [ ] Print messages for attack/damage/HP
-- [ ] Add turn counter
-- [ ] Format for readability (lines, spacing)
+- ✅ Print messages for attack/damage/HP
+- ✅ Add turn counter
+- ✅ Format for readability (lines, spacing)
 
 **Learn:** Output formatting, string usage
 
