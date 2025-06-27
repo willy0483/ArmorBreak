@@ -43,9 +43,9 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 3: Turn-Based Loop
 
-- [ ] Add a battle loop using `while (player.hp > 0 && enemy.hp > 0)`
-- [ ] Alternate turns between player and enemy
-- [ ] Print HP after each turn
+- ✅ Add a battle loop using `while (player.hp > 0 && enemy.hp > 0)`
+- ✅ Alternate turns between player and enemy
+- ✅ Print HP after each turn
 
 **Learn:** While loops, game logic
 **Resources:**
