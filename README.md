@@ -77,10 +77,10 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 6: Win/Loss & Replay
 
-- [ ] End the game when someone’s HP ≤ 0
-- [ ] Display win/loss message
-- [ ] Ask if the player wants to play again
-- [ ] Use a `do { } while()` loop for replay
+- ✅ End the game when someone’s HP ≤ 0
+- ✅ Display win/loss message
+- ✅ Ask if the player wants to play again
+- ✅ Use a `do { } while()` loop for replay
 
 **Learn:** Loops, game restart logic
 
