@@ -55,9 +55,9 @@ int calculateDamage(int atk, int def);
 
 ## 🗓️ Day 4: Player Choice
 
-- [ ] Ask the player: (1) Attack (2) Defend
-- [ ] Use `cin` to read input
-- [ ] Implement defend logic (reduce damage)
+- ✅ Ask the player: (1) Attack (2) Defend
+- ✅ Use `cin` to read input
+- ✅ Implement defend logic (reduce damage)
 
 **Learn:** User input, branching
 **Resources:**
