@@ -206,8 +206,7 @@ int getPlayerChoice()
 	std::cin >> choice;
 	while (choice != 1 && choice !=2)
 	{
-		std::cin.clear(); // clear error flag
-		std::cin.ignore(1000, '\n'); // discard input
+
 		std::cout << "Invalid input. Choose 1 or 2: ";
 		std::cin >> choice;
 	}
