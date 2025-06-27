@@ -11,9 +11,9 @@ int main()
 	struct Character
 	{
 		std::string name;
-		int hp			 = 0;	  // Health
-		int atk			 = 0;	  // Attack
-		int def			 = 0;	  // Defense
+		int hp = 0;	  // Health
+		int atk = 0;	  // Attack
+		int def = 0;	  // Defense
 		bool isDefending = false; // Defending
 
 		//
@@ -23,11 +23,10 @@ int main()
 		{
 			std::cout << "------------------\n";
 			std::cout << "Name : " << name << '\n';
-			std::cout << "Hp   : " << hp   << '\n';
-			std::cout << "atk  : " << atk  << '\n';
-			std::cout << "def  : " << def  << '\n';
+			std::cout << "Hp   : " << hp << '\n';
+			std::cout << "atk  : " << atk << '\n';
+			std::cout << "def  : " << def << '\n';
 			std::cout << "------------------\n";
-
 		}
 
 		//
@@ -49,7 +48,7 @@ int main()
 				std::cout << name << " defended the attack!\n";
 			}
 
-	
+
 			//
 			// Subtract hp from total damage
 			//
@@ -64,101 +63,129 @@ int main()
 	};
 
 
-	//
-	// Create Player
-	//
-	Character player;
-	player.name = "William";
-	player.atk  = 10;
-	player.hp   = 100;
-	player.def  = 15;
+	bool playAgain = true;
 
-	//
-	// Create Enemy
-	//
-	Character enemy;
-	enemy.name  = "Troll";
-	enemy.atk   = 15;
-	enemy.hp    = 150;
-	enemy.def   = 30;
-
-
-
-	//
-	// What turn is the game on
-	//
-	int turn = 1;
-
-
-
-
-	//
-	// Game loop while player or enemy has more then 0 health
-	//
-	while (player.hp > 0 && enemy.hp > 0)
+	while (playAgain)
 	{
 
-		std::cout << "\n==============================\n";
-		std::cout << " Turn " << turn << "\n";
-		std::cout << "==============================\n\n";
-
-
-	
 		//
-		// Reset isDefending ervery turn
+		// Create Player
 		//
-		player.isDefending = false;
+		Character player;
+		player.name = "William";
+		player.atk = 10;
+		player.hp = 100;
+		player.def = 15;
 
 		//
-		// Get player choice
+		// Create Enemy
 		//
-		int playerChoice{getPlayerChoice()};
-		if (playerChoice == 1)
+		Character enemy;
+		enemy.name = "Troll";
+		enemy.atk = 15;
+		enemy.hp = 150;
+		enemy.def = 30;
+
+
+
+		//
+		// What turn is the game on
+		//
+		int turn = 1;
+
+		//
+		// Game loop while player or enemy has more then 0 health
+		//
+		while (player.hp > 0 && enemy.hp > 0)
 		{
-			enemy.takeDamage(player.atk,enemy.isDefending);
+
+			std::cout << "\n==============================\n";
+			std::cout << " Turn " << turn << "\n";
+			std::cout << "==============================\n\n";
+
+
+
+			//
+			// Reset isDefending ervery turn
+			//
+			player.isDefending = false;
+
+			//
+			// Get player choice
+			//
+			int playerChoice{ getPlayerChoice() };
+			if (playerChoice == 1)
+			{
+				enemy.takeDamage(player.atk, enemy.isDefending);
+			}
+			else
+			{
+				player.isDefending = true;
+			}
+
+
+			// stop loop if health is less or 0 
+			if (enemy.hp <= 0) break;
+			// print stats after an attack
+			enemy.printStats();
+
+			player.takeDamage(enemy.atk, player.isDefending);
+			if (player.hp <= 0) break;
+			player.printStats();
+
+
+			//
+			// Add plus one to turn
+			//
+			++turn;
+		}
+
+
+
+
+		//
+		// Prints who is the winner to console
+		//
+		std::cout << "\n==============================\n";
+		std::cout << " Battle Result\n";
+		std::cout << "==============================\n";
+
+		if (player.hp <= 0)
+		{
+			std::cout << player.name << " has fallen.\n";
+			std::cout << enemy.name << " wins with " << enemy.hp << " HP left!\n";
 		}
 		else
 		{
-			player.isDefending = true;
+			std::cout << enemy.name << " has fallen.\n";
+			std::cout << player.name << " wins with " << player.hp << " HP left!\n";
 		}
 
 
-		// stop loop if health is less or 0 
-		if (enemy.hp <= 0) break;
-		// print stats after an attack
-		enemy.printStats();
-
-		player.takeDamage(enemy.atk,player.isDefending);
-		if (player.hp <= 0) break;
-		player.printStats();
-
-
 		//
-		// Add plus one to turn
+		// Ask to play again
 		//
-		++turn;
+		std::string choice;
+		std::cout << "\n-----------------\n";
+		std::cout << "   Game over\n";
+		std::cout << "-----------------\n";
+		std::cout << "Play again? (y/n): ";
+		std::cin >> choice;
 
+		while (choice != "y" && choice != "n")
+		{
+			std::cout << "Invalid input. Choose y or n: ";
+			std::cin >> choice;
+		}
+		if (choice == "y")
+		{
+			playAgain = true;
+		}
+		else if (choice == "n")
+		{
+			playAgain = false;
+		}
 	}
-
-
-	//
-	// Prints who is the winner to console
-	//
-	std::cout << "\n==============================\n";
-	std::cout << " Battle Result\n";
-	std::cout << "==============================\n";
-
-	if (player.hp <= 0)
-	{
-		std::cout << player.name << " has fallen.\n";
-		std::cout << enemy.name << " wins with " << enemy.hp << " HP left!\n";
-	}
-	else
-	{
-		std::cout << enemy.name << " has fallen.\n";
-		std::cout << player.name << " wins with " << player.hp << " HP left!\n";
-	}
-
 
 	return 0;
 }
@@ -204,9 +231,10 @@ int getPlayerChoice()
 	std::cout << "> ";
 
 	std::cin >> choice;
-	while (choice != 1 && choice !=2)
+	while (std::cin.fail() || (choice != 1 && choice != 2))
 	{
-
+		std::cin.clear();                 // clear fail state
+		std::cin.ignore(1000, '\n');      // discard invalid input
 		std::cout << "Invalid input. Choose 1 or 2: ";
 		std::cin >> choice;
 	}
